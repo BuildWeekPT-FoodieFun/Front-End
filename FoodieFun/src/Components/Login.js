@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withFormik, Form, Field } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
 
-import index from '../../src/index.css';
+import '../../src/index.css';
 
 const Form1 = (values) => {
+	const Person = {
+		name: '',
+		email: '',
+		password: ''
+	}
+
+	const [NewProfile, addNewProfile] = useState(Person);
+
+	const resetForm = () => {
+		addNewProfile(Person);
+	};
+
 	return (
 		<Form className='form'>
 			<h2>Add Your Information Below!</h2>
