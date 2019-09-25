@@ -57,7 +57,7 @@ export default withFormik({
 	}),
 
 	handleSubmit: (values, formik) => {
-    axios.post('https://reqres.in/api/animals', values)
+    axios.post('https://reqres.in/api/auth/login', values)
     .then((res) => {
       console.log(res, values)
       formik.setStatus(res.data);
@@ -70,5 +70,5 @@ export default withFormik({
   }
 })(Login)
 
-// https://reqres.in/api/animals
-// https://reqres.in/api/auth/register
+// https://reqres.in/api/animals... This is a testing API. 
+// https://reqres.in/api/auth/login
