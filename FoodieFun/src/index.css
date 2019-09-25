@@ -51,3 +51,7 @@ button {
 	z-index: 10;
 	padding: 10px;
 }
+
+p {
+	margin: 0;
+}
