@@ -6,14 +6,8 @@ import axios from 'axios';
 import '../../src/index.css';
 
 const UserCreate = ({ values, status }) => {
-	const Person = {
-		name: '',
-		// email: '',
-		password: ''
-	}
-
 	const [NewProfile, addNewProfile] = useState([]);
-	console.log(NewProfile)
+	// console.log(NewProfile)
 	useEffect(() => {
 		if (status) {
 			addNewProfile([...NewProfile, status])
@@ -28,7 +22,7 @@ const UserCreate = ({ values, status }) => {
 			<ErrorMessage name='name' />
 			<Field 
 				type='text' name='name' 
-				placeholder='name' 
+				placeholder='Name' 
 				className='field'
 			/>
 
@@ -36,7 +30,7 @@ const UserCreate = ({ values, status }) => {
 			{/*values.errors.password && <p className='errors'>{values.errors.password}</p>*/}
 			<Field 
 				type='password' 
-				name='password' 
+				name='Password' 
 				placeholder='password' 
 				className='field'
 			/>

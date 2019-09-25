@@ -7,12 +7,13 @@ body {
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
 
-  	background-color: black;
+  	background-color: #4acaa8;
 	height: 800px;
+	font-family: 'Source Sans Pro', Arial, sans-serif;
 }
 
 form {
-	background-color: #2fa2cc;
+	background-color: #4acaa8;
 	color: white;
 	width: 500px;
 	margin: 50px auto;
@@ -21,7 +22,8 @@ form {
 	display: flex;
 	flex-direction: column;
 	border-radius: 10px;
-	box-shadow: white 10px 10px 30px;
+	/*box-shadow: white 10px 10px 30px;*/
+	color: white;
 }
 
 h2 {
@@ -32,18 +34,23 @@ h2 {
 
 .field {
 	width: 300px;
-	height: 20px;
+	height: 2.75em;
 	margin: 10px auto;
 	border-radius: 5px;
-	box-shadow: black 5px 5px 15px;
+	/*box-shadow: black 5px 5px 15px;*/
+	border: solid 2px lightgrey;
+	padding-left: 10px;
 }
 
 button {
 	width: 150px;
+	height: 2.75em;
 	margin: 10px auto;
 	border-radius: 5px;
 	padding: 5px;
-	box-shadow: black 5px 5px 15px;
+	/*box-shadow: black 5px 5px 15px;*/
+	background-color: #989898;
+	border: solid 1px #989898;
 }
 
 .errors {
