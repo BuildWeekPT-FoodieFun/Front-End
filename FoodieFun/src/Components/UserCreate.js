@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import axios from 'axios';
 
 import '../../src/index.css';
 
-const UserCreate = ({ values }) => {
+const UserCreate = ({ values, status }) => {
 	const Person = {
 		name: '',
-		email: '',
+		// email: '',
 		password: ''
 	}
 
-	// const [NewProfile, addNewProfile] = useState(Person);
+	const [NewProfile, addNewProfile] = useState([]);
+	console.log(NewProfile)
+	useEffect(() => {
+		if (status) {
+			addNewProfile([...NewProfile, status])
+		}
+	}, [status])
 
 	return (
 		<Form className='form'>
@@ -23,15 +29,6 @@ const UserCreate = ({ values }) => {
 			<Field 
 				type='text' name='name' 
 				placeholder='name' 
-				className='field'
-			/>
-
-			<ErrorMessage name='email' />
-			{/*values.errors.email && <p className='errors'>{values.errors.email}</p>*/}
-			<Field 
-				type='text' 
-				name='email' 
-				placeholder='email' 
 				className='field'
 			/>
 
@@ -54,14 +51,14 @@ export default withFormik({
 		return {
 			// This makes the inputs controlled. 
 			name: values.name || '',
-			email: values.email || '',
+			// email: values.email || '',
 			password: values.password || ''
 		}
 	},
 
 	validationSchema: yup.object().shape({
 		name: yup.string().required('Full name is required!'), 
-		email: yup.string().email().required('We need an email address!'),
+		// email: yup.string().email().required('We need an email address!'),
 		password: yup.string().required('password required!')
 	}),
 
@@ -69,7 +66,7 @@ export default withFormik({
     axios.post('https://reqres.in/api/animals', values)
     .then((res) => {
       console.log(res, values)
-
+      formik.setStatus(res.data);
       formik.resetForm();
 
     })
@@ -78,3 +75,6 @@ export default withFormik({
     })
   }
 })(UserCreate)
+
+// https://reqres.in/api/animals
+// https://reqres.in/api/auth/register
