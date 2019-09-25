@@ -5,7 +5,7 @@ import axios from 'axios';
 
 import '../../src/index.css';
 
-const Login = ({ values, status }) => {
+const UserCreate = ({ values, status }) => {
 	const [NewProfile, addNewProfile] = useState([]);
 	// console.log(NewProfile)
 	useEffect(() => {
@@ -16,7 +16,7 @@ const Login = ({ values, status }) => {
 
 	return (
 		<Form className='form'>
-			<h2>Sign In Here!</h2>
+			<h2>Add Your Information Below!</h2>
 			{/*values.errors.name && <p className='errors'>{values.errors.name}</p>*/}
 
 			<ErrorMessage name='name' />
@@ -26,11 +26,11 @@ const Login = ({ values, status }) => {
 				className='field'
 			/>
 
-			<ErrorMessage name='Password' />
+			<ErrorMessage name='password' />
 			{/*values.errors.password && <p className='errors'>{values.errors.password}</p>*/}
 			<Field 
 				type='password' 
-				name='password' 
+				name='Password' 
 				placeholder='password' 
 				className='field'
 			/>
@@ -57,7 +57,7 @@ export default withFormik({
 	}),
 
 	handleSubmit: (values, formik) => {
-    axios.post('https://reqres.in/api/auth/login', values)
+    axios.post('https://reqres.in/api/auth/register', values)
     .then((res) => {
       console.log(res, values)
       formik.setStatus(res.data);
@@ -68,7 +68,7 @@ export default withFormik({
       console.log('error:', err)
     })
   }
-})(Login)
+})(UserCreate)
 
 // https://reqres.in/api/animals... This is a testing API. 
-// https://reqres.in/api/auth/login
+// https://reqres.in/api/auth/register

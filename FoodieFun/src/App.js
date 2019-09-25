@@ -1,11 +1,14 @@
 import React from 'react';
-import Form1 from './Components/Login';
+import UserCreate from './Components/UserCreate';
+import Login from './Components/Login';
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <Form1 />
+          <UserCreate />
+          <Login />
       </header>
     </div>
   );
