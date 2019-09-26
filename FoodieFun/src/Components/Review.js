@@ -46,7 +46,9 @@ const UserCreate = ({ values, status }) => {
 			<Field 
 				type='number' 
 				name='rating' 
-				placeholder='Rate your meal' 
+				min='0'
+				max='5'
+				placeholder='Rate 0 to 5. 5 is best' 
 				className='field'
 			/>
 
