@@ -7,7 +7,7 @@ body {
   	-webkit-font-smoothing: antialiased;
   	-moz-osx-font-smoothing: grayscale;
 
-  	background-color: #4acaa8;
+  	background-color: #fafbfd;
 	height: 800px;
 	font-family: 'Source Sans Pro', Arial, sans-serif;
 }
@@ -21,7 +21,7 @@ form {
 
 	display: flex;
 	flex-direction: column;
-	border-radius: 10px;
+	/*border-radius: 10px;*/
 	/*box-shadow: white 10px 10px 30px;*/
 	color: white;
 }

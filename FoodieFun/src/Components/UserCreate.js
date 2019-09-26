@@ -12,17 +12,18 @@ const UserCreate = ({ values, status }) => {
 		if (status) {
 			addNewProfile([...NewProfile, status])
 		}
-	}, [status])
+	}, [status, NewProfile])
 
 	return (
 		<Form className='form'>
-			<h2>Add Your Information Below!</h2>
+			<h2>Create Your Account</h2>
 			{/*values.errors.name && <p className='errors'>{values.errors.name}</p>*/}
 
-			<ErrorMessage name='name' />
+			<ErrorMessage name='username' />
 			<Field 
-				type='text' name='name' 
-				placeholder='Name' 
+				type='text' 
+				name='username' 
+				placeholder='Username' 
 				className='field'
 			/>
 
@@ -30,8 +31,8 @@ const UserCreate = ({ values, status }) => {
 			{/*values.errors.password && <p className='errors'>{values.errors.password}</p>*/}
 			<Field 
 				type='password' 
-				name='Password' 
-				placeholder='password' 
+				name='password' 
+				placeholder='Password' 
 				className='field'
 			/>
 
@@ -44,20 +45,21 @@ export default withFormik({
 	mapPropsToValues: (values) => { // Values are mapped to the name prop in Field.
 		return {
 			// This makes the inputs controlled. 
-			name: values.name || '',
+			username: values.username || '',
 			// email: values.email || '',
 			password: values.password || ''
 		}
 	},
 
 	validationSchema: yup.object().shape({
-		name: yup.string().required('Full name is required!'), 
+		username: yup.string().required('Full name is required!'), 
 		// email: yup.string().email().required('We need an email address!'),
 		password: yup.string().required('password required!')
 	}),
 
 	handleSubmit: (values, formik) => {
-    axios.post('https://reqres.in/api/auth/register', values)
+    axios
+    .post('https://foodiefunbackend.herokuapp.com/api/auth/register', values)
     .then((res) => {
       console.log(res, values)
       formik.setStatus(res.data);
@@ -72,3 +74,5 @@ export default withFormik({
 
 // https://reqres.in/api/animals... This is a testing API. 
 // https://reqres.in/api/auth/register
+
+// https://foodiefunbackend.herokuapp.com/api/auth/register

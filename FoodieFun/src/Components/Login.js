@@ -12,17 +12,18 @@ const Login = ({ values, status }) => {
 		if (status) {
 			addNewProfile([...NewProfile, status])
 		}
-	}, [status])
+	}, [status, NewProfile])
 
 	return (
 		<Form className='form'>
-			<h2>Sign In Here!</h2>
+			<h2>Sign In</h2>
 			{/*values.errors.name && <p className='errors'>{values.errors.name}</p>*/}
 
-			<ErrorMessage name='name' />
+			<ErrorMessage name='username' />
 			<Field 
-				type='text' name='name' 
-				placeholder='Name' 
+				type='text' 
+				name='username' 
+				placeholder='Username' 
 				className='field'
 			/>
 
@@ -31,7 +32,7 @@ const Login = ({ values, status }) => {
 			<Field 
 				type='password' 
 				name='password' 
-				placeholder='password' 
+				placeholder='Password' 
 				className='field'
 			/>
 
@@ -44,20 +45,21 @@ export default withFormik({
 	mapPropsToValues: (values) => { // Values are mapped to the name prop in Field.
 		return {
 			// This makes the inputs controlled. 
-			name: values.name || '',
+			username: values.username || '',
 			// email: values.email || '',
 			password: values.password || ''
 		}
 	},
 
 	validationSchema: yup.object().shape({
-		name: yup.string().required('Full name is required!'), 
+		username: yup.string().required('Full name is required!'), 
 		// email: yup.string().email().required('We need an email address!'),
 		password: yup.string().required('password required!')
 	}),
 
 	handleSubmit: (values, formik) => {
-    axios.post('https://reqres.in/api/auth/login', values)
+    axios
+    .post('https://foodiefunbackend.herokuapp.com/api/auth/login', values)
     .then((res) => {
       console.log(res, values)
       formik.setStatus(res.data);
