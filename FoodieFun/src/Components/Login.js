@@ -27,7 +27,7 @@ const Login = ({ values, status }) => {
 				className='field'
 			/>
 
-			<ErrorMessage name='Password' />
+			<ErrorMessage name='password' />
 			{/*values.errors.password && <p className='errors'>{values.errors.password}</p>*/}
 			<Field 
 				type='password' 
