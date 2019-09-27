@@ -18,26 +18,26 @@ const UserCreate = ({ values, status }) => {
 		<Form className='form'>
 			<h2>Leave your review below.</h2>
 
-			<ErrorMessage name='itemName' />
+			<ErrorMessage name='item_name' />
 			<Field 
 				type='text' 
-				name='itemName' 
+				name='item_name' 
 				placeholder='Name of food item' 
 				className='field'
 			/>
 
-			<ErrorMessage name='restType' />
+			<ErrorMessage name='restaurant_type' />
 			<Field 
 				type='text' 
-				name='restType' 
+				name='restaurant_type' 
 				placeholder='Type of restaurant' 
 				className='field'
 			/>
 
-			<ErrorMessage name='restName' />
+			<ErrorMessage name='restaurant_name' />
 			<Field 
 				type='text' 
-				name='restName' 
+				name='restaurant_name' 
 				placeholder='Restaurant name' 
 				className='field'
 			/>
@@ -52,11 +52,11 @@ const UserCreate = ({ values, status }) => {
 				className='field'
 			/>
 
-			<ErrorMessage name='textarea' />
+			<ErrorMessage name='comments' />
 			<Field 
 				component='textarea'
 				type='text' 
-				name='textarea' 
+				name='comments' 
 				placeholder='Place your review here.' 
 				className='textarea'
 			/>
@@ -70,14 +70,21 @@ export default withFormik({
 	mapPropsToValues: (values) => { // Values are mapped to the name prop in Field.
 		return {
 			// This makes the inputs controlled. 
-			textarea: values.textarea || '',
-			// email: values.email || '',
-			password: values.password || ''
+			item_name: values.item_name || '',
+			restaurant_type: values.restaurant_type || '',
+			restaurant_name: values.restaurant_name || '',
+			rating: values.rating || '',
+			comments: values.comments || '',
+			// user_id: values.id || '4'
 		}
 	},
 
 	validationSchema: yup.object().shape({
-		textarea: yup.string().required('You must leave a review before you submit this form.'), 
+		item_name: yup.string().required('What is the name of the item you are reviewing?'),
+		restaurant_type: yup.string().required('What kind of restaurant did you eat at?'),
+		restaurant_name: yup.string().required('What is the name of the restaurant?'),
+		rating: yup.string().required('Please leave a rating from 0 to 5'),
+		comments: yup.string().required('You must leave a review before you submit this form.') 
 	}),
 
 	handleSubmit: (values, formik) => {
@@ -98,4 +105,4 @@ export default withFormik({
 // https://reqres.in/api/animals... This is a testing API. 
 // https://reqres.in/api/auth/register
 
-// https://foodiefunbackend.herokuapp.com/api/auth/register
+// https://foodiefunbackend.herokuapp.com/api/app

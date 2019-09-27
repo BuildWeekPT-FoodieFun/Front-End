@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       	<Review />
-        {/*<UserCreate />*/}
+        <UserCreate />
         {<Login />}
       </header>
     </div>
