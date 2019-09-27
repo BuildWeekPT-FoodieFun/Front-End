@@ -89,7 +89,7 @@ export default withFormik({
 
 	handleSubmit: (values, formik) => {
     axios
-    .post('https://foodiefunbackend.herokuapp.com/api/app', values)
+    .post('https://reqres.in/api/animals', values)
     .then((res) => {
       console.log(res, values)
       formik.setStatus(res.data);
