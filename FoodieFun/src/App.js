@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
       	<Review />
         <UserCreate />
-        {<Login />}
+        <Login />
       </header>
     </div>
   );
