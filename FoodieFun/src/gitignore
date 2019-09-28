@@ -93,3 +93,6 @@ public
 
 # Mac hidden file
 .DS_Store
+
+.lock
+.json
