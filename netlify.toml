@@ -1,4 +1,0 @@
-#[build]
- # base = "/FoodieFun"
- # publish = "/FoodieFun/build"
- # command = "npm run build"
