@@ -1,0 +1,8 @@
+[build]
+  base = "FoodieFun/"
+  publish = "FoodieFun/build"
+  command = "npm run build"
+
+[[redirects]]
+from = "/*"
+  to = "/index.html"
